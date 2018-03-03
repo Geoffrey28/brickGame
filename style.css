@@ -34,36 +34,11 @@
   height: 440px;
   border: 3px solid black;
   margin: 50px;
-  background: lightgrey;
+  background: grey;
 }
 
-.loseModal {
+.infoContent {
   position: absolute;
-  width: 720px;
-  height: 440px;
-  border: 3px solid black;
-  background: black;
-  margin-left: 130px;
-  margin-top: 179px;
-  z-index: -99;
-}
-
-.loseModal_title {
-  color: orange;
-  font-weight: bold;
-  font-size: 50px;
-  text-align: center;
-  margin-top: 100px;
-}
-
-.loseButton {
-  background: orange;
-  font-weight: bold;
-  text-align: center;
-  margin: 150px auto;
-  border-radius: 4px;
-  line-height: 30px;
-  width: 90px;
-  height: 30px;
-  cursor: pointer;
+  right: 40px;
+  bottom: 80px;
 }
