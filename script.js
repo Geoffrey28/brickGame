@@ -19,7 +19,9 @@ var brickOffsetTop = 10;
 var brickOffsetLeft = 32;
 var score = 0;
 var lives = 3;
-var paused = true;
+var paused = false;
+var memoryX = dx;
+var memoryY = dy;
 
 var bricks = [];
 for(c=0; c<brickColumnCount; c++) {
@@ -75,11 +77,19 @@ function togglePause() {
 
 window.addEventListener('keydown', function (e) {
 var key = e.keyCode;
-if (key === 80) // P
-{
+if (key === 80) { // P
     togglePause();
+    if (paused === true) {
+        dx = 0;
+        dy = 0;
+    } else if (paused === false) {
+        dx = memoryX;
+        dy = memoryY;
+    }
 }
 });
+
+
 
 function drawBackground() {
     ctx.beginPath();
@@ -145,10 +155,6 @@ function draw() {
     drawLives();
     collisionDetection();
 
-    if (paused === false) {
-      clip();
-    }
-
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
@@ -164,8 +170,8 @@ function draw() {
             } else {
                 x = canvas.width/2;
                 y = canvas.height-10;
-                dx = 3;
-                dy = -3;
+                dx = 4;
+                dy = -4;
                 paddleX = (canvas.width-paddleWidth)/2;
             }
         }
